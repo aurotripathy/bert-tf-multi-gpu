@@ -24,7 +24,7 @@ import optimization_gpu
 import tensorflow as tf
 from tensorflow.estimator import RunConfig
 from tensorflow.estimator import Estimator
-from tensorflow.python.distribute.cross_device_ops import AllReduceCrossDeviceOps
+from tensorflow.contrib.distribute import AllReduceCrossDeviceOps
 
 flags = tf.flags
 
@@ -445,7 +445,7 @@ def main(_):
 
     dist_strategy = tf.contrib.distribute.MirroredStrategy(
         num_gpus=FLAGS.n_gpus,
-        cross_device_ops=AllReduceCrossDeviceOps('nccl', num_packs=FLAGS.n_gpus),
+        cross_device_ops = AllReduceCrossDeviceOps('nccl', num_packs=FLAGS.n_gpus),
         # cross_device_ops=AllReduceCrossDeviceOps('hierarchical_copy'),
     )
     log_every_n_steps = 8
