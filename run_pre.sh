@@ -1,5 +1,5 @@
 export BERT_BASE_DIR=uncased_L-12_H-768_A-12
-python3 run_pretraining_gpu_v2.py \
+python3 run_pretraining_multi_gpu.py \
        --input_file=/tmp/tf_examples.tfrecord \
        --output_dir=/tmp/pretraining_output \
        --do_train=True \
@@ -12,4 +12,5 @@ python3 run_pretraining_gpu_v2.py \
        --max_predictions_per_seq=20 \
        --num_train_steps=200 \
        --num_warmup_steps=10 \
-       --learning_rate=2e-5
+       --learning_rate=2e-5 \
+       --n_gpus=4
