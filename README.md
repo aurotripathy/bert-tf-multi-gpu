@@ -22,7 +22,7 @@ The BERT dataset format is quite rigid, so I picked up a reasonable dataset for 
 
 Download the `dev.tsv`, `test.tsv`, `train.tsv` and deposit them in the `data` folder.
 
-run the script `run_classify.sh`
+Run the script `run_classify.sh`
 
 
 
