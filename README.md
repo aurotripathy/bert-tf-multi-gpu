@@ -12,6 +12,8 @@ You'll need to download and unzip the files at [uncased_L-12_H-768_A-12 model](h
 
 Invoke the script run_create.sh to create the tfrecord formatted inputs.
 
+Then invoke the script `run_pre.sh`
+
 ### Multi-GPU Fine-training with Dataset
 
 
