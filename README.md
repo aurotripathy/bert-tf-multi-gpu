@@ -7,20 +7,25 @@ In any case, this repo is a variation of the original code using the "standard" 
 
 Note, you should lean heaviliy of the documentation in the original [BERT](https://github.com/google-research/bert) repo. Documentation provided here is barebones. 
 
+### Requirements
+TF 1.14 and Python3
+
 ### Multi-GPU Pre-training with Toy Dataset
 I'll call this training from scratch. 
 
-You'll need to download and unzip the files at [uncased_L-12_H-768_A-12 model](https://storage.googleapis.com/bert_models/2018_10_18/uncased_L-12_H-768_A-12.zip).
+You'll need to download and unzip the files at [uncased_L-12_H-768_A-12 model](https://storage.googleapis.com/bert_models/2018_10_18/uncased_L-12_H-768_A-12.zip). 
 
 Invoke the script `run_create.sh` to create the tfrecord formatted inputs.
 
-Then invoke the script `run_pre.sh`
+Then invoke the script `run_pre.sh`  to train from scratch. If you want to run the training step (in addition to the eval step), ensure you delete the output folder `/tmp/pretraining_output`.
 
 ### Multi-GPU Fine-training with Dataset
 
 The BERT dataset format is quite rigid, so I picked up a reasonable dataset for fine-tuning on BERT from [here](https://github.com/craic/bert_paper_classification). 
 
-Download the `dev.tsv`, `test.tsv`, `train.tsv` and deposit them in the `data` folder.
+Download the `dev.tsv`, `test.tsv`, `train.tsv` and deposit them in the `data` folder. 
+
+Pre-trained BERT comes in two sizes - Base and Large - we're using the base model.
 
 Run the script `run_classify.sh`
 
