@@ -6,6 +6,8 @@ This is a multi-GPU variant of [BERT](https://github.com/google-research/bert) d
 In any case, this variation is a multi-GPU version using the "standard" [tf.estimator.EstimatorSpec](https://www.tensorflow.org/api_docs/python/tf/estimator/EstimatorSpec) APIs. 
 
 ### Multi-GPU Pre-training with Toy Dataset
+I'll call this training from scratch. 
+
 You'll need to download and unzip the files at [uncased_L-12_H-768_A-12 model](https://storage.googleapis.com/bert_models/2018_10_18/uncased_L-12_H-768_A-12.zip).
 
 Invoke the script run_create.sh to create the tfrecord formatted inputs.
