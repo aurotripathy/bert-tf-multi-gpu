@@ -18,4 +18,7 @@ Then invoke the script `run_pre.sh`
 
 ### Multi-GPU Fine-training with Dataset
 
+I picked up a reasonable datsat for fine-tuning on BERT from [here](https://github.com/craic/bert_paper_classification).
+
+
 
