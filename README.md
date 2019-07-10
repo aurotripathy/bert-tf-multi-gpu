@@ -18,7 +18,14 @@ Then invoke the script `run_pre.sh`
 
 ### Multi-GPU Fine-training with Dataset
 
-I picked up a reasonable datsat for fine-tuning on BERT from [here](https://github.com/craic/bert_paper_classification).
+The BERT dataset format is quite rigid, so I picked up a reasonable dataset for fine-tuning on BERT from [here](https://github.com/craic/bert_paper_classification). 
+
+Download the `dev.tsv`, `test.tsv`, `train.tsv` and deposit them in the `data` folder.
+
+run the script `run_classify.sh`
+
+
+
 
 
 
