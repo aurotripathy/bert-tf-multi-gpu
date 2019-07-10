@@ -5,7 +5,7 @@ This is a multi-GPU variant of [BERT](https://github.com/google-research/bert) d
 
 In any case, this repo is a variation of the original code using the "standard" [tf.estimator.EstimatorSpec](https://www.tensorflow.org/api_docs/python/tf/estimator/EstimatorSpec) APIs to make it scale to multi-GPUs.
 
-Note, I lean heaviliy of the documentation in the original repo.
+Note, You should lean heaviliy of the documentation in the original [BERT](https://github.com/google-research/bert) repo. Documentation provided here is barebones. 
 
 ### Multi-GPU Pre-training with Toy Dataset
 I'll call this training from scratch. 
