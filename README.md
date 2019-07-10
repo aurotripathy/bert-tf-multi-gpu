@@ -7,6 +7,9 @@ In any case, this repo is a variation of the original code using the "standard" 
 
 Note, you should lean heaviliy of the documentation in the original [BERT](https://github.com/google-research/bert) repo. Documentation provided here is barebones. 
 
+### Requirements
+TF 1.14 and Python3
+
 ### Multi-GPU Pre-training with Toy Dataset
 I'll call this training from scratch. 
 
