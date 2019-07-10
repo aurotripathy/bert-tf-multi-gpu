@@ -14,7 +14,7 @@ You'll need to download and unzip the files at [uncased_L-12_H-768_A-12 model](h
 
 Invoke the script `run_create.sh` to create the tfrecord formatted inputs.
 
-Then invoke the script `run_pre.sh`  to train from scratch. Ensure you delete the output folder `/tmp/pretraining_output`.
+Then invoke the script `run_pre.sh`  to train from scratch. If you want to run the training step (in addition to the eval step), ensure you delete the output folder `/tmp/pretraining_output`.
 
 ### Multi-GPU Fine-training with Dataset
 
