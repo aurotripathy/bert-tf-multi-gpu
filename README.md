@@ -10,7 +10,7 @@ I'll call this training from scratch.
 
 You'll need to download and unzip the files at [uncased_L-12_H-768_A-12 model](https://storage.googleapis.com/bert_models/2018_10_18/uncased_L-12_H-768_A-12.zip).
 
-Invoke the script run_create.sh to create the tfrecord formatted inputs.
+Invoke the script `run_create.sh` to create the tfrecord formatted inputs.
 
 Then invoke the script `run_pre.sh`
 
