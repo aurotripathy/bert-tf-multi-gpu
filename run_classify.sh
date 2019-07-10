@@ -1,5 +1,5 @@
 export BERT_BASE_DIR=uncased_L-12_H-768_A-12
-python3 run_classifier.py \
+python3 run_classifier_multi_gpu.py \
        --task_name=cola \
        --do_train=true \
        --do_eval=true \
