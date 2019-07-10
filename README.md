@@ -1,4 +1,4 @@
-# Adapting TPU-based BERT for multi-GPU scaling with TF MirrorredStrategy 
+## Adapting TPU-based BERT for multi-GPU scaling with TF MirrorredStrategy 
 
 This is a multi-GPU variant of [BERT](https://github.com/google-research/bert) developed by Google. The Google version appears to be written for scaling with TPUs ([tf.contrib.tpu.TPUEstimatorSpec](https://www.tensorflow.org/api_docs/python/tf/estimator/tpu/TPUEstimatorSpec)). The Google code runs as-is on a multi-GPU system but seems to fallback to a single GPU (at least thats the casw with TF 1.14).
 
