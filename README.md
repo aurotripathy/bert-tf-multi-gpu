@@ -14,13 +14,15 @@ You'll need to download and unzip the files at [uncased_L-12_H-768_A-12 model](h
 
 Invoke the script `run_create.sh` to create the tfrecord formatted inputs.
 
-Then invoke the script `run_pre.sh`
+Then invoke the script `run_pre.sh`  to train from scratch. 
 
 ### Multi-GPU Fine-training with Dataset
 
 The BERT dataset format is quite rigid, so I picked up a reasonable dataset for fine-tuning on BERT from [here](https://github.com/craic/bert_paper_classification). 
 
-Download the `dev.tsv`, `test.tsv`, `train.tsv` and deposit them in the `data` folder. Pre-trained BERT comes in two sizes - Base and Large - ew're using the base model.
+Download the `dev.tsv`, `test.tsv`, `train.tsv` and deposit them in the `data` folder. 
+
+Pre-trained BERT comes in two sizes - Base and Large - we're using the base model.
 
 Run the script `run_classify.sh`
 
