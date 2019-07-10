@@ -28,7 +28,7 @@ import tensorflow as tf
 from tensorflow.estimator import RunConfig
 from tensorflow.estimator import Estimator
 from tensorflow.contrib.distribute import AllReduceCrossDeviceOps
-from pudb import set_trace
+# from pudb import set_trace
 
 
 flags = tf.flags
@@ -872,7 +872,6 @@ def main(_):
   train_examples = None
   num_train_steps = None
   num_warmup_steps = None
-  set_trace()
   if FLAGS.do_train:
     train_examples = processor.get_train_examples(FLAGS.data_dir)
     num_train_steps = int(
