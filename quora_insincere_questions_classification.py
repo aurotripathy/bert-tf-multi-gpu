@@ -9,6 +9,8 @@ from matplotlib import pyplot as plt
 import sys
 import datetime
 
+from pudb import set_trace
+
 repo = 'model_repo'
 with zipfile.ZipFile("uncased_L-12_H-768_A-12.zip","r") as zip_ref:
     zip_ref.extractall(repo)
@@ -151,52 +153,88 @@ When predicting, estimator returns an empty dict {}, without batch_size.
 I redefine input_fn_builder and hardcode batch_size, irnoring 'params' for now.
 """
 
-def input_fn_builder(features, seq_length, is_training, drop_remainder):
-    """Creates an `input_fn` closure to be passed to TPUEstimator."""
+# def input_fn_builder(features, seq_length, is_training, drop_remainder):
+#     """Creates an `input_fn` closure to be passed to TPUEstimator."""
 
-    all_input_ids = []
-    all_input_mask = []
-    all_segment_ids = []
-    all_label_ids = []
+#     all_input_ids = []
+#     all_input_mask = []
+#     all_segment_ids = []
+#     all_label_ids = []
 
-    for feature in features:
-        all_input_ids.append(feature.input_ids)
-        all_input_mask.append(feature.input_mask)
-        all_segment_ids.append(feature.segment_ids)
-        all_label_ids.append(feature.label_id)
+#     for feature in features:
+#         all_input_ids.append(feature.input_ids)
+#         all_input_mask.append(feature.input_mask)
+#         all_segment_ids.append(feature.segment_ids)
+#         all_label_ids.append(feature.label_id)
 
-    def input_fn(params):
-        """The actual input function."""
-        print(params)
-        batch_size = 32
+#     def input_fn(params):
+#         """The actual input function."""
+#         print(params)
+#         batch_size = 32
         
-        num_examples = len(features)
+#         num_examples = len(features)
 
-        d = tf.data.Dataset.from_tensor_slices({
-            "input_ids":
-	    tf.constant(
-	        all_input_ids, shape=[num_examples, seq_length],
-	        dtype=tf.int32),
-	    "input_mask":
-	    tf.constant(
-                all_input_mask,
-	        shape=[num_examples, seq_length],
-	        dtype=tf.int32),
-	    "segment_ids":
-	    tf.constant(
-	        all_segment_ids,
-	        shape=[num_examples, seq_length],
-	        dtype=tf.int32),
-	    "label_ids":
-	    tf.constant(all_label_ids, shape=[num_examples], dtype=tf.int32),
-        })
+#         d = tf.data.Dataset.from_tensor_slices({
+#             "input_ids":
+# 	    tf.constant(
+# 	        all_input_ids, shape=[num_examples, seq_length],
+# 	        dtype=tf.int32),
+# 	    "input_mask":
+# 	    tf.constant(
+#                 all_input_mask,
+# 	        shape=[num_examples, seq_length],
+# 	        dtype=tf.int32),
+# 	    "segment_ids":
+# 	    tf.constant(
+# 	        all_segment_ids,
+# 	        shape=[num_examples, seq_length],
+# 	        dtype=tf.int32),
+# 	    "label_ids":
+# 	    tf.constant(all_label_ids, shape=[num_examples], dtype=tf.int32),
+#         })
       
-        if is_training:
-            d = d.repeat()
-            d = d.shuffle(buffer_size=100)
+#         if is_training:
+#             d = d.repeat()
+#             d = d.shuffle(buffer_size=100)
             
-            d = d.batch(batch_size=batch_size, drop_remainder=drop_remainder)
-        return d
+#             d = d.batch(batch_size=batch_size, drop_remainder=drop_remainder)
+#         return d
 
-    return input_fn
-  
+#     return input_fn
+
+set_trace()
+predict_examples = create_examples(test_lines, 'test')
+
+predict_features = run_classifier.convert_examples_to_features(
+    predict_examples, label_list, MAX_SEQ_LENGTH, tokenizer)
+
+# predict_input_fn = input_fn_builder(
+predict_input_fn = run_classifier.input_fn_builder(
+    features=predict_features,
+    seq_length=MAX_SEQ_LENGTH,
+    is_training=False,
+    drop_remainder=False)
+
+result = estimator.predict(input_fn=predict_input_fn)
+
+# ------------
+set_trace()
+from tqdm import tqdm
+preds = []
+# for prediction in tqdm(result):
+for prediction in result:
+    for class_probability in prediction:
+        preds.append(float(class_probability))
+
+results = []
+for i in tqdm(range(0,len(preds),2)):
+    if preds[i] < 0.9:
+        results.append(1)
+    else:
+        results.append(0)
+
+from sklearn.metrics import accuracy_score
+from sklearn.metrics import f1_score
+
+print(accuracy_score(np.array(results), test_labels))
+print(f1_score(np.array(results), test_labels))
