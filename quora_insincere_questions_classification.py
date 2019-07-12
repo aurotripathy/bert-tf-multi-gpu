@@ -202,7 +202,6 @@ I redefine input_fn_builder and hardcode batch_size, irnoring 'params' for now.
 
 #     return input_fn
 
-set_trace()
 predict_examples = create_examples(test_lines, 'test')
 
 predict_features = run_classifier.convert_examples_to_features(
@@ -218,12 +217,12 @@ predict_input_fn = run_classifier.input_fn_builder(
 result = estimator.predict(input_fn=predict_input_fn)
 
 # ------------
-set_trace()
 from tqdm import tqdm
 preds = []
 # for prediction in tqdm(result):
 for prediction in result:
     for class_probability in prediction:
+        set_trace()
         preds.append(float(class_probability))
 
 results = []
