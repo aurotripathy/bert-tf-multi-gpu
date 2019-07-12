@@ -25,6 +25,7 @@ import modeling
 import optimization
 import tokenization
 import tensorflow as tf
+from pudb import set_trace
 
 flags = tf.flags
 
@@ -726,7 +727,9 @@ def input_fn_builder(features, seq_length, is_training, drop_remainder):
 
   def input_fn(params):
     """The actual input function."""
-    batch_size = params["batch_size"]
+    # set_trace()
+    # batch_size = params["batch_size"]
+    batch_size = 32
 
     num_examples = len(features)
 
