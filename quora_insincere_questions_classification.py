@@ -36,7 +36,7 @@ train, test = train_test_split(train_df, test_size = 0.1, random_state=42)
 
 train_lines, train_labels = train.question_text.values, train.target.values
 test_lines, test_labels = test.question_text.values, test.target.values
-set_trace()
+
 
 import modeling
 import optimization
@@ -224,8 +224,8 @@ for prediction in tqdm(result):
     preds.append(prediction['probabilities'])
 
 results = []
-for i in tqdm(range(0,len(preds),2)):
-    if preds[i][0] < 0.9:
+for pred in tqdm(preds):
+    if pred[0] < 0.9:
         results.append(1)
     else:
         results.append(0)
@@ -233,6 +233,5 @@ for i in tqdm(range(0,len(preds),2)):
 from sklearn.metrics import accuracy_score
 from sklearn.metrics import f1_score
 
-set_trace()
-print(accuracy_score(np.array(results), test_labels))
-print(f1_score(np.array(results), test_labels))
+print('Accuracy:', accuracy_score(np.array(results), test_labels))
+print('F1 Score:', f1_score(np.array(results), test_labels))
