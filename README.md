@@ -9,6 +9,7 @@ Note, you should lean heaviliy of the documentation in the original [BERT](https
 
 ### Requirements
 TF 1.14 and Python3
+
 If you are using TF 1.13.1, you may need a compatible pip `tensorflow-estimator`.
 I had to `pip install tensorflow-estimator==1.13.0`
 
