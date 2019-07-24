@@ -42,6 +42,6 @@ Other kernels excercised are, scalar product (10.28%) and  memcpy P2P/D2D (5.31%
   <img src="/docs/nvprof.PNG" width="2000" />
 </p>
 
-I've included a [short primer on GEMM](bert-tf-multi-gpu/docs/gemm.md)
+I've included a [short primer on GEMM](/bert-tf-multi-gpu/docs/gemm.md)
 
 
