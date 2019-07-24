@@ -35,6 +35,8 @@ Run the script `run_classify.sh`
 
 ### Profiling BERT on Multi GPU
 
+The profiler reveals that a mojority of time is spent in primaritly in sgemm and rccl kernels.     
+
 <p float="left">
   <img src="/docs/nvprof.PNG" width="2000" />
 </p>
