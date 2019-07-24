@@ -36,11 +36,12 @@ Run the script `run_classify.sh`
 ### Profiling BERT on Multi GPU
 
 The `nvprof` profiler reveals that a majority of time is spent primarily in `sgemm` (49.32%) and `ncclAllReduce` (17.49%) kernels. 
-Other kernels excercised are, scalar product (10.28%) and  memcpy P2P/D2D (5.31%), 
+Other kernels excercised are, scalar product (10.28%) and  memcpy P2P/D2D (5.31%).
 
 <p float="left">
   <img src="/docs/nvprof.PNG" width="2000" />
 </p>
 
+I've included a [short primer on GEMM](bert-tf-multi-gpu/docs/gemm.md)
 
 
