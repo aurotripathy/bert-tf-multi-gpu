@@ -23,7 +23,7 @@ Invoke the script `run_create.sh` to create the TFRecord formatted inputs.
 
 Then invoke the script `run_pre.sh`  to train from scratch. If you want to run the training step (in addition to the eval step), ensure you delete the output folder `/tmp/pretraining_output`.
 
-### Multi-GPU Fine-training with Dataset
+### Multi-GPU Fine-tuning with Dataset
 
 The BERT dataset format is quite rigid, so I picked up a reasonable dataset for fine-tuning on BERT from [here](https://github.com/craic/bert_paper_classification). 
 
@@ -35,7 +35,9 @@ Run the script `run_classify.sh`
 
 ### Profiling BERT on Multi GPU
 
-
+<p float="left">
+  <img src="docs/nvprof.png" width="425" />
+</p>
 
 
 
