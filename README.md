@@ -35,7 +35,7 @@ Run the script `run_classify.sh`
 
 ### Profiling BERT on Multi GPU
 
-The `nvprof` profiler reveals that a majority of time is spent primarily in `sgemm` and `ncclAllReduce` kernels.     
+The `nvprof` profiler reveals that a majority of time is spent primarily in `sgemm` (49.32%) and `ncclAllReduce` (17.49%) kernels.     
 
 <p float="left">
   <img src="/docs/nvprof.PNG" width="2000" />
