@@ -36,7 +36,7 @@ Run the script `run_classify.sh`
 ### Profiling BERT on Multi GPU
 
 <p float="left">
-  <img src="/docs/nvprof.PNG" width="425" />
+  <img src="/docs/nvprof.PNG" width="1000" />
 </p>
 
 
