@@ -33,6 +33,7 @@ Pre-trained BERT comes in two sizes - Base and Large - we're using the base mode
 
 Run the script `run_classify.sh`
 
+### Profiling BERT on Multi GPU
 
 
 
