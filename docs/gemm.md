@@ -2,7 +2,7 @@
 
 General Matrix Multiplies (GEMM) exist in the vast majority of deep neural networks today. Matrix Multiplies are used to implement fully connected layers and vanilla RNNs. In the case of BERT, it is a major contributor  to the workload. 
 
-When performing the GEMM operation `C <= aA * B` where `A`, `B` and `C` are matrices and `a` is a scalar. The A and B matrices can be optionally transposed leading to four variations called  NN, TN, NT and TT kernels respectively where N corresponds to no-transpose and T corresponds to transpose. the TT variation is not used in enural networks.
+When performing the GEMM operation `C = alpha * A * B + beta * C`, where `A`, `B` and `C` are matrices and `a` and `b` are scalars. The A and B matrices can be optionally transposed leading to four variations called  NN, TN, NT and TT kernels respectively where N corresponds to no-transpose and T corresponds to transpose. The TT variation is not used in nenural networks.
 
 ```
 int i , j , k ; 
