@@ -38,7 +38,7 @@ Run the script `run_classify.sh`
 The `nvprof` profiler reveals that a majority of time is spent primarily in `sgemm` (49.32%) and `ncclAllReduce` (17.49%) kernels. 
 Other kernels excercised are, scalar product (10.28%) and  memcpy P2P/D2D (5.31%).
 
-Notice, there are two kinds of AllReduce kernels, ncclAllReduceKernel_sum_f32 and ncclAllReduceLLKernel_sum_f32 (low latency).  LL means low latency kernel for small data sizes. The threshold can be set via NCCL environmental variable. Default threshold is 32KB.
+Notice, there are two kinds of AllReduce kernels, `ncclAllReduceKernel_sum_f32` and `ncclAllReduceLLKernel_sum_f32` (low latency).  LL stands for low latency for small data sizes. The threshold can be set via NCCL environmental variable. Default threshold is 32KB.
 
 <p float="left">
   <img src="/docs/nvprof.PNG" width="2000" />
